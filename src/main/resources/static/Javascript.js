@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch('http://localhost:8080/deliveries')
             .then(response => response.json())
             .then(data => {
+                const table = document.getElementById('table');
                 const rows = document.getElementById('table').getElementsByTagName('tr');
 
                 data.forEach((delivery, index) => {

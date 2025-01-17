@@ -22,7 +22,11 @@
             <td th:text="${delivery.expectedDeliveryTime}"></td>
             <td th:text="${delivery.drone != null ? delivery.drone.id : 'No Drone Assigned'}"></td>
             <td th:text="${delivery.delivered != true ? 'Not delivered' : 'Delivered'}"></td>
-            <td><button>hello</button></td>
+            <td>
+                <form action="http://localhost:8080/deliveries/schedule" method="post">
+                    <input type="hidden" th:value="${delivery.drone != null ? delivery.drone.id : ''}" />
+                    <button type="submit">Send Post</button>
+                </form>
         </tr>
 
     </tbody>
